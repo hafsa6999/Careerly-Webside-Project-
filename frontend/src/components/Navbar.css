@@ -1,0 +1,447 @@
+
+/* Careerly Navbar */
+
+.careerly-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e8f0eb;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.careerly-navbar,
+.careerly-navbar * {
+  box-sizing: border-box;
+}
+
+.careerly-navbar-inner {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Brand */
+
+.careerly-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.careerly-brand-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #07865b;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(7, 134, 91, 0.16);
+}
+
+.careerly-brand-name {
+  color: #173b2e;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1.1px;
+}
+
+.careerly-brand-name span {
+  color: #10b981;
+}
+
+/* Desktop links */
+
+.careerly-desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.careerly-nav-link {
+  position: relative;
+  padding: 10px 13px;
+  color: #66766d;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.careerly-nav-link:hover {
+  color: #07865b;
+  background: #f0faf4;
+}
+
+.careerly-nav-link.active {
+  color: #07865b;
+  background: #eaf8ef;
+}
+
+.careerly-nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #07865b;
+  transform: translateX(-50%);
+}
+
+/* Desktop buttons */
+
+.careerly-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  flex-shrink: 0;
+}
+
+.careerly-login-link {
+  color: #315443;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.careerly-login-link:hover {
+  color: #07865b;
+}
+
+.careerly-signup-button {
+  min-height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 17px;
+  border-radius: 9px;
+  color: #ffffff;
+  background: #07865b;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.careerly-signup-button:hover {
+  color: #ffffff;
+  background: #066b49;
+  transform: translateY(-1px);
+}
+
+.careerly-signup-icon {
+  transform: rotate(-45deg);
+}
+
+/* Mobile toggle */
+
+.careerly-mobile-toggle {
+  display: none;
+  width: 43px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #176044;
+  background: #eff9f2;
+  border: 1px solid #dcefe2;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.careerly-mobile-toggle:hover {
+  background: #e1f5e8;
+}
+
+/* Mobile menu */
+
+.careerly-mobile-menu {
+  display: none;
+}
+
+/* Keyboard accessibility */
+
+.careerly-navbar a:focus-visible,
+.careerly-mobile-toggle:focus-visible {
+  outline: 3px solid #34d399;
+  outline-offset: 3px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .careerly-navbar-inner {
+    gap: 16px;
+  }
+
+  .careerly-desktop-nav {
+    gap: 0;
+  }
+
+  .careerly-nav-link {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .careerly-nav-actions {
+    gap: 13px;
+  }
+
+  .careerly-brand-name {
+    font-size: 23px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 740px) {
+  .careerly-navbar-inner {
+    width: calc(100% - 36px);
+    min-height: 70px;
+  }
+
+  .careerly-brand-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .careerly-brand-name {
+    font-size: 24px;
+  }
+
+  .careerly-desktop-nav,
+  .careerly-nav-actions {
+    display: none;
+  }
+
+  .careerly-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .careerly-mobile-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    background: #ffffff;
+    border-bottom: 1px solid transparent;
+    box-shadow: 0 12px 22px rgba(18, 59, 42, 0.06);
+    transition:
+      max-height 0.28s ease,
+      visibility 0.28s ease,
+      border-color 0.28s ease;
+  }
+
+  .careerly-mobile-menu.open {
+    max-height: 460px;
+    visibility: visible;
+    border-bottom-color: #e8f0eb;
+  }
+
+  .careerly-mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px 18px 8px;
+  }
+
+  .careerly-mobile-link {
+    display: block;
+    padding: 13px 15px;
+    border-radius: 9px;
+    color: #53675b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .careerly-mobile-link:hover,
+  .careerly-mobile-link.active {
+    color: #07865b;
+    background: #eaf8ef;
+  }
+
+  .careerly-mobile-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    padding: 13px 18px 20px;
+  }
+
+  .careerly-mobile-login,
+  .careerly-mobile-signup {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .careerly-mobile-login {
+    color: #176044;
+    background: #eff9f2;
+    border: 1px solid #dcefe2;
+  }
+
+  .careerly-mobile-signup {
+    color: #ffffff;
+    background: #07865b;
+  }
+
+  .careerly-mobile-login:hover {
+    background: #e1f5e8;
+  }
+
+  .careerly-mobile-signup:hover {
+    color: #ffffff;
+    background: #066b49;
+  }
+}
+
+/* Reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+  .careerly-navbar *,
+  .careerly-navbar *::before,
+  .careerly-navbar *::after {
+    transition: none !important;
+  }
+}
+
+.navbar-link {
+  color: #53665a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #078b57;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn,
+.signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 17px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  color: #087a4d;
+  background: #fff;
+  border: 1px solid #d7e8dc;
+}
+
+.signup-btn {
+  color: #fff;
+  background: #078b57;
+  border: 1px solid #078b57;
+}
+
+.signup-btn:hover {
+  background: #066d45;
+}
+
+.navbar-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #087a4d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  color: #087a4d;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-content {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e0ebe3;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px #163c2512;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid #e6eee8;
+  }
+
+  .navbar-user {
+    width: 100%;
+  }
+
+  .nav-buttons .login-btn,
+  .nav-buttons .signup-btn {
+    flex: 1;
+  }
+}
+
